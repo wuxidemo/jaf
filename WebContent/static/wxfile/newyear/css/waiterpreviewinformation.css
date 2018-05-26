@@ -1,0 +1,121 @@
+body {
+	margin: 0;
+	text-align: center;
+}
+
+
+#whole_middle {
+	text-align: center;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#middltext {
+	text-align: center;
+	width: 100%;
+}
+
+
+#middltext_l {
+	overflow: hidden;
+    width: 86%;
+    margin-left: 7%;
+}
+
+.middltext_div {
+    float: left;
+    margin: auto;
+    width: 27%;
+    text-align: left;
+    font-size: 15px;
+    color: #898989;
+    font-weight: bold;
+    font-family: "Microsoft YaHei" ! important;
+    margin-top: 16px;
+    line-height: 16px;
+}
+
+#xm,#shouji,#dpmc,#grxy {
+	float: right;
+	margin: auto;
+    width: 72%;
+    text-align: left;
+    border: 0;
+    text-indent: 15px;
+    vertical-align: middle;
+    padding: 0;
+    font-size: 15px;
+    color: black;
+    font-family: "Microsoft YaHei" ! important;
+    background-color: transparent;
+    margin-top: 14px;
+}
+
+#henxian1,#henxian2 {
+	width: 100%;
+	border-bottom: 1px solid #c3c1c1;
+	margin-top: 15px;
+	margin-bottom: 10px;
+}
+
+#grgzz {
+    width: 40%;
+    float: left;
+    padding-bottom: 40%;
+    height: 0;
+    margin-top: 14px; 
+    margin-left: 6%;
+}
+
+#tianjia {
+	width: 72%;
+}
+
+#a {
+	display: none;
+}
+#whole_foot {
+    text-align: center;
+    width: 100%;
+    bottom: 0;
+    margin-top: 90px;
+}
+
+#fanhuishouye {
+	float: left;
+	width: 50%;
+}
+
+#bianji {
+	float: left;
+	width: 50%;
+}
+
+#homepage {
+    background-color: white;
+    border-radius: 6px;
+    color: #ef2e2f;
+    text-align: center;
+    border: 1px solid #ef2e2f;
+    width: 75%;
+    height: 44px;
+    margin-left: 5%;
+    font-size: 21px;
+    line-height: 1px;
+}
+
+#edit {
+    height: 44px;
+    margin-left: 4%;
+    float: left;
+    width: 75%;
+    background-color: #ef2e2f;
+    border-radius: 6px;
+    color: white;
+    text-align: center;
+    border: 0;
+    font-size: 21px;
+    line-height: 15px;
+}
+

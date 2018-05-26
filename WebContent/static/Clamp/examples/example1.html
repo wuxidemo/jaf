@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Clamp.js Example 1</title>
+<style>
+body {
+}
+
+.f {
+	width: 100%;
+	display: table;
+}
+
+.z {
+	border: 1px solid;
+	display: table-cell;
+}
+
+.a1 {
+	width: 100px;
+}
+
+.sl {
+	
+}
+
+.yh {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
+	overflow: hidden;
+}
+</style>
+</head>
+<body>
+	<div class="f"
+		style="bottom: -100%; opacity: 0; position: fixed;">
+		<div class="z a1">aa</div>
+		<div id="sl" class="z">
+			<div id="vvv">用农商行卡，优惠享不停aaasdasdasd用农商行卡，优惠享不停用农商行卡，优惠享不停用农商行卡，优惠享不停用农商行卡，优惠享不停</div>
+		</div>
+		<div class="z a1">ccc</div>
+
+	</div>
+	<script src="jquery-1.9.1.min.js" type="text/javascript"></script>
+	<script src="../clamp.js"></script>
+	<script>
+		//alert($("#vvv").width());
+
+		$("body")
+				.append(
+						'<div class="f" style=""><div class="z a1">aa</div><div id="sl" class="z"><div class="yh" style="width:'
+								+ $("#vvv").width()
+								+ 'px;">用农商行卡，优惠享不停aaasdasdasd用农商行卡，优惠享不停用农商行卡，优惠享不停用农商行卡，优惠享不停用农商行卡，优惠享不停</div></div><div class="z a1">ccc</div></div>')
+		$("body")
+				.append(
+						'<div class="f" style=""><div class="z a1">aa</div><div id="sl" class="z"><div class="yh" style="width:'
+								+ $("#vvv").width()
+								+ 'px;">用农商行卡，优惠享不停aaasdasdasd用农商行卡，优惠享不停用农商行卡，优惠享不停用农商行卡，优惠享不停用农商行卡，优惠享不停</div></div><div class="z a1">ccc</div></div>')
+
+		$("body")
+				.append(
+						'<div class="f" style=""><div class="z a1">aa</div><div id="sl" class="z"><div class="yh" style="width:'
+								+ $("#vvv").width()
+								+ 'px;">用农商行卡，优惠享不停aaasdasdasd用农商行卡，优惠享不停用农商行卡，优惠享不停用农商行卡，优惠享不停用农商行卡，优惠享不停</div></div><div class="z a1">ccc</div></div>')
+
+		$("body")
+				.append(
+						'<div class="f" style=""><div class="z a1">aa</div><div id="sl" class="z"><div class="yh" style="width:'
+								+ $("#vvv").width()
+								+ 'px;">用农商行卡，优惠享不停aaasdasdasd用农商行卡，优惠享不停用农商行卡，优惠享不停用农商行卡，优惠享不停用农商行卡，优惠享不停</div></div><div class="z a1">ccc</div></div>')
+
+		var ddd1 = document.getElementById("sl");
+		//  $clamp(paragraph, {clamp: 2, useNativeClamp: false, animate: false,truncationChar:' ',truncationHTML:'...<a href="#" class="setColor">更多.</a>'});
+	</script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+@CHARSET "UTF-8";
+
+.boxshow {
+	color: white;
+	position: fixed;
+	width: 200px;
+	height: auto;
+	right: 0;
+	top: 46px;
+	min-height: 200px;
+	z-index: 99;
+}
+
+.boxtitle {
+	background-color: black;
+	height: 24px;
+	opacity: 0.8;
+	width: 100%;
+	z-index: 999;
+	cursor: move;
+}
+
+.boxnumber {
+	background-color: #333;
+	font-size: 20px;
+	height: 30px;
+	line-height: 30px;
+	opacity: 0.7;
+	text-align: center;
+	width: 100%;
+	cursor: default;
+}
+
+.boxclose {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 20px;
+	height: 20px;
+	color: white;
+	text-align: center;
+	cursor: pointer;
+	z-index: 9;
+}
+
+.boxcontent {
+	background-color: #333;
+	border-top: 1px dashed white;
+	height: auto;
+	opacity: 0.7;
+	padding: 10px 0;
+	text-align: center;
+	width: 100%;
+}
+.boxcontent:HOVER{
+	background-color: #003477;
+}
+.boxcontentform {
+	width: 80%;
+	margin: auto;
+	cursor: pointer;
+}
+
+.boxul {
+	margin: 0;
+	list-style: none;
+}
+
+.boxul li {
+	text-align: left;
+}

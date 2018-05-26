@@ -1,0 +1,125 @@
+@CHARSET "UTF-8";
+html body{
+	margin:0px;
+	padding:0px;
+	color: #545454;
+	font-size:15px;
+}
+.head{
+	height:147px;
+	background-color:#eeeeee;
+}
+.head1{
+/* 	height: 147px; */
+/*     width: 92px; */
+/*     margin: auto; */
+    padding-top: 27px;
+}
+.head1Top{
+/* 	height: 92px; */
+/*     width: 92px; */
+/*     padding-top: 15px; */
+/*     padding-bottom: 10px; */
+/*     text-align: center; */
+/*     overflow: hidden; */
+    /* margin-top: 30px; */
+    width: 25%;
+    padding-bottom: 25%;
+    height: 0;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    background: url("${headimgurl}?imageView2/2/w/100|imageMogr2/auto-orient") no-repeat;
+    background-size: cover;
+    background-position: 50%;
+}
+/* .head1Top img{ */
+/* 	border-radius: 50%; */
+/*     height: 100%; */
+/*     width: 100%; */
+/* } */
+.head1Botm{
+	height: 30px;
+    text-align: center;
+    font-size: 18px;
+}
+.detail{
+	height: 45px;
+    text-align: center;
+    width: 60%;
+    padding-left: 20%;
+    padding-right: 20%;
+    border-top: 1px solid #dedede;
+}
+.detailLt{
+	width: 50%;
+    height: 45px;
+    line-height: 45px;
+    float: left;
+}
+.detailRt{
+	height: 45px;
+    line-height: 45px;
+}
+.time{
+	height: 45px;
+	line-height: 45px;
+	border-bottom: 1px solid #dedede;
+    border-top: 1px solid #dedede;
+}
+.timeLt{
+	width: 73%;
+    height: 45px;
+    float: left;
+    border-right: 1px solid #dedede;
+    margin-left: 7%;
+}
+.timeRt{
+	height: 45px;
+    float: left;
+    width: 19%;
+    text-align: center;
+}
+.timeRt img{
+	width: 27px;
+    margin-top: 9px;
+}
+
+.talent{
+	height: 50px;
+    line-height: 50px;
+    margin-left: 7%;
+}
+.ys{
+	background-color: #ededed;
+    padding: 3px 4px;
+    border-radius: 15px;
+}
+.content{
+	width:100%;
+/* 	height: 180px;	 */
+    padding-bottom: 80px;
+    border-bottom:1px solid #dedede;
+}
+.contentIner{
+	width: 86%;
+/* 	height: 180px; */
+	line-height: 22px;	
+	margin: auto;   
+}
+.botm{
+	height: 40px;
+    line-height: 40px;
+    overflow: hidden;
+}
+.botmLt{
+    width: 45%;
+    padding-right: 5%;
+    text-align: right;
+    float:left;
+    }
+.botmRt{
+	width: 45%;
+    float: right;
+    padding-left: 5%;
+}

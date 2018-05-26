@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+
+	<!-- 自动扫描且只扫描@Controller -->
+	<context:component-scan base-package="com.yjy"
+		use-default-filters="false">
+		<context:include-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+		<context:include-filter type="annotation"
+			expression="org.springframework.web.bind.annotation.ControllerAdvice" />
+	</context:component-scan>
+
+
+	<mvc:annotation-driven>
+		<mvc:message-converters register-defaults="true">
+			<!-- 将StringHttpMessageConverter的默认编码设为UTF-8 -->
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<constructor-arg value="UTF-8" />
+			</bean>
+			<!-- 将Jackson2HttpMessageConverter的默认格式化输出设为true -->
+			<bean
+				class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+				<property name="prettyPrint" value="true" />
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+
+
+
+	<!-- 定义JSP文件的位置 -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/views/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	<!-- MultipartResolver解析器 -->
+	<bean id="multipartResolver" class="com.yjy.web.process.CommonsMultipartResolverExt">
+		<property name="maxUploadSize">
+			<value>1104857600</value>
+		</property>
+		<property name="maxInMemorySize">
+			<value>4096</value>
+		</property>
+	</bean>
+
+	<!-- 容器默认的DefaultServletHandler处理 所有静态内容与无RequestMapping处理的URL -->
+	<mvc:default-servlet-handler />
+
+	<!-- 定义无需Controller的url<->view直接映射 -->
+
+	<mvc:view-controller path="/" view-name="default" />
+	<mvc:view-controller path="/report" view-name="report" />
+	<mvc:view-controller path="/error/500" view-name="error/500" />
+	<mvc:view-controller path="/error/404" view-name="error/404" />
+
+
+	<!-- 将Controller抛出的异常转到特定View, 保持SiteMesh的装饰效果 -->
+	<!-- >bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver"> 
+		<property name="exceptionMappings"> <props> <prop key="java.lang.Throwable">error/500</prop> 
+		</props> </property> </bean -->
+
+
+	<!-- 定时JOB -->
+	<bean name="taskJob" class="com.yjy.job.job" />
+
+
+	<bean id="RefreshAccessTokenJobDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="taskJob" />
+		</property>
+		<property name="targetMethod">
+			<value>RefreshAccessToken</value>
+		</property>
+	</bean>
+
+	<bean id="RefreshRebateRecordJobDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="taskJob" />
+		</property>
+		<property name="targetMethod">
+			<value>refreshRebateRecordState</value>
+		</property>
+	</bean>
+
+	<bean id="RefreshUnuseRebateJobDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="taskJob" />
+		</property>
+		<property name="targetMethod">
+			<value>refreshUnuseRebate</value>
+		</property>
+	</bean>
+	
+	<!-- 临时最美服务员开始-->
+	<bean id="RefreshZMFWY"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="taskJob" />
+		</property>
+		<property name="targetMethod">
+			<value>updateZmfwyVoteStage</value>
+		</property>
+	</bean>
+	<bean id="UpdateZMFWY_Trigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="RefreshZMFWY" />
+		</property>
+		<property name="cronExpression">
+			<value>0 0 0 * * ?</value>
+		</property>
+	</bean>
+	<!-- 临时最美服务员结束-->
+	
+	<!-- 配置社区活动，包括抢购活动等需要定时刷新状态的Job  -->
+	<bean id="RefreshCommActJobDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="taskJob" />
+		</property>
+		<property name="targetMethod">
+			<value>updateCommActState</value>
+		</property>
+	</bean>
+	<bean id="updateCommActTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<!-- 这里不可以直接在属性jobDetail中引用taskJob，因为他要求的是一个jobDetail类型的对象，所以我们得通过MethodInvokingJobDetailFactoryBean来转一下 -->
+		<property name="jobDetail">
+			<ref bean="RefreshCommActJobDetail" />
+		</property>
+		<!-- 设置在每分钟的第59秒的时候，更新下活动的状态  -->
+		<property name="cronExpression">
+			<value>59 * * * * ?</value>
+		</property>
+		
+	</bean>
+	<!-- 配置社区活动Job，结束  -->
+
+	<!-- 配置触发器 -->
+
+	<bean id="accesstoken_Trigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+		<!-- 这里不可以直接在属性jobDetail中引用taskJob，因为他要求的是一个jobDetail类型的对象，所以我们得通过MethodInvokingJobDetailFactoryBean来转一下 -->
+		<property name="jobDetail">
+			<ref bean="RefreshAccessTokenJobDetail" />
+		</property>
+		<property name="startDelay">
+			<value>0</value>
+		</property>
+		<property name="repeatInterval">
+			<!-- 每隔1小时 -->
+			<value>3600000</value>
+		</property>
+	</bean>
+
+	<bean id="rebateRecord_Trigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+		<!-- 这里不可以直接在属性jobDetail中引用taskJob，因为他要求的是一个jobDetail类型的对象，所以我们得通过MethodInvokingJobDetailFactoryBean来转一下 -->
+		<property name="jobDetail">
+			<ref bean="RefreshRebateRecordJobDetail" />
+		</property>
+		<property name="startDelay">
+			<value>10000</value>
+		</property>
+		<property name="repeatInterval">
+			<value>1800000</value>
+		</property>
+	</bean>
+
+	<bean id="UnuseRebate_Trigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<!-- 这里不可以直接在属性jobDetail中引用taskJob，因为他要求的是一个jobDetail类型的对象，所以我们得通过MethodInvokingJobDetailFactoryBean来转一下 -->
+		<property name="jobDetail">
+			<ref bean="RefreshUnuseRebateJobDetail" />
+		</property>
+		<property name="cronExpression">
+			<value>0 10 0 * * ?</value>
+		</property>
+	</bean>
+	
+	
+
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<!-- 添加触发器 -->
+		<property name="triggers">
+			<list>
+				<ref bean="accesstoken_Trigger" />
+				<ref bean="rebateRecord_Trigger" />
+				<ref bean="UnuseRebate_Trigger" />
+				<ref bean="UpdateZMFWY_Trigger" />
+				<ref bean="updateCommActTrigger" />
+			</list>
+		</property>
+	</bean>
+	
+	
+	
+	
+
+</beans>

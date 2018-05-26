@@ -1,0 +1,506 @@
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	font-family: Microsoft YaHei;
+	font-size: 14px;
+}
+
+.main_image li {
+	float: left;
+	width: 100%;
+	position: absolute;
+}
+
+.main_image li img {
+	position: absolute;
+	display: block;
+	width: 100%;
+}
+
+div.flicking_con {
+	position: absolute;
+    right: 9px;
+    bottom: 2px;
+    z-index: 999;
+    height: 21px;
+    text-align: center;
+}
+
+div.flicking_con a {
+	display: inline-block;
+	width: 21px;
+	height: 21px;
+	margin: 0;
+	padding: 0;
+	background: url('../../../../static/wxfile/main1601/image/lbdqie4_05.png') center no-repeat;
+	text-indent: -1000px;
+}
+
+div.flicking_con a.on {
+	background-position: 0 -21px;
+	background: url('../../../../static/wxfile/main1601/image/lbdqie4_03.png') center no-repeat;
+}
+
+
+#head2 {
+	width: 100%;
+	overflow: hidden;
+	margin: 0;
+	margin-top: 10px;
+}
+
+#meishi,#shenghuofuwu,#xiuxianyule,#qita {
+	width: 25%;
+    float: left;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+#meishi img,#shenghuofuwu img,#xiuxianyule img,#qita img {
+	width: 46px;
+}
+
+#ms,#shfw,#xxyl,#qt {
+	width: 100%;
+    text-align: center;
+    margin: auto;
+    color: #7a7070;
+    margin-top: 2px;
+    font-family: "Microsoft YaHei" ! important;
+}
+
+#kongdiv {
+	width: 100%;
+	height: 10px;
+	background-color: #e1e3e1;
+}
+
+#middle1 {
+	width: 100%;
+	overflow: hidden;
+	margin: 0;
+}
+
+#remenshanghu {
+	width: 100%;
+    overflow: hidden;
+    margin: 0;
+    border-bottom: 1px solid #D2D2D2;
+}
+#fujinshangjia {
+	width: 100%;
+    overflow: hidden;
+    margin: 0;
+    border-bottom: 1px solid #D2D2D2;
+}
+
+#aixin {
+	width: 10%;
+    float: left;
+    text-align: center;
+    overflow: hidden;
+    margin-top: 6px;
+}
+
+#fujin {
+	width: 10%;
+    float: left;
+    text-align: center;
+    overflow: hidden;
+    margin-top: 6px;
+}
+
+#aixin img {
+	width: 17px;
+    height: 18px;
+    margin-left: 45%;
+}
+
+#fujin img {
+	width: 16px;
+    height: 18px;
+    margin-left: 45%;
+}
+
+#rmsh,#fjsj {
+	width: 80%;
+    float: left;
+    text-align: left;
+    font-size: 18px;
+    color: #373737;
+    font-family: "Microsoft YaHei" ! important;
+    line-height: 31px;
+    margin-left: 4%;
+}
+
+#wxm {
+	width: 100%;
+	overflow: hidden;
+	margin: 0;
+	margin-bottom: 15px;
+}
+
+#wasaitu,#xiehoutu,#mitaocantingtu {
+	width: 33.3%;
+	float: left;
+	overflow: hidden;
+	text-align: center;
+}
+
+#ws,#xh,#mtct {
+	margin-top: 8px;
+}
+
+#ws img,#xh img,#mtct img {
+	width: 64%;
+}
+
+#xh {
+	border-left: 1px solid #D2D2D2;
+	border-right: 1px solid #D2D2D2;
+}
+
+#wasai,#xiehou,#mitaocanting {
+    color: #7a7070;
+    font-family: "Microsoft YaHei" ! important;
+    margin-top: 5px;
+}
+
+#liebiao {
+	width: 100%;
+	text-align: center;
+	overflow: hidden;
+}
+
+.rowdiv {
+	width: 100%;
+	text-align: center;
+} 
+
+#beforecard1 {
+	background-color: white;
+    height: 8px;
+    width: 100%;
+}
+
+#card {
+	overflow: hidden;
+    width: 100%;
+    margin: auto;
+    background-color: white;
+}
+
+#left {
+	min-width: 76px;
+    margin: auto;
+    width: 30%;
+    text-align: center;
+    float: left;
+    overflow: hidden;
+}
+
+#left div {
+	width: 76px;
+    margin: auto;
+    overflow: hidden;
+}
+
+#left img {
+	display: block;
+    width: 76px;
+    height: 62px;
+}
+
+#right {
+	width: 70%;
+    float: left;
+    text-align: left;
+    overflow: hidden;
+}
+
+.pbetweenright_middle {
+	width: 100%;
+    margin: 0;
+}
+
+.right_top {
+	display: block;
+    word-break: keep-all;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 5px;
+}
+
+.right_top1 {
+	width: 80%;
+    color: #0A0A0A;
+    font-size: 18px;
+    overflow: hidden;
+    word-break: keep-all;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-family: "Microsoft YaHei" ! important;
+}
+
+.right_m11{
+	width: 10%;
+    float: left;
+    color: #FF6000;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 16px;
+    margin-left: 5px;
+}
+
+
+.right_m12 {
+	width: 50%;
+	float: left;
+	text-align: right;
+	color: #808080;
+	font-size: 14px;
+	font-family: "Microsoft YaHei" ! important;
+}
+
+
+#changecolor{
+	color: #FF6000;
+	font-size: 14px;
+	font-weight: bold;	
+}
+
+.right_middle1 {
+	overflow: hidden;
+    width: 95%;
+    margin-top: 5px;
+}
+
+.xingxing{
+	width: 50%;
+    float: left;
+}
+
+.xingxing img{
+	width: 16px;
+    height: 14px;
+    float: left;
+}
+
+.right_middle2 {
+	overflow: hidden;
+    width: 95%;
+    margin-top: 5px;
+}
+
+.right_m21 {
+    height: 19px;
+    float: left;
+    color: #808080;
+    font-size: 14px;
+    font-family: "Microsoft YaHei" ! important;
+    background-color: #F5F5F5;
+    text-align: center;
+    line-height: 19px;
+    border-radius: 5px;
+    padding: 3px;
+}
+
+.right_m22 {
+	float: right;
+    color: #808080;
+    font-size: 14px;
+    text-align: right;
+    word-break: keep-all;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-family: "Microsoft YaHei" ! important;
+    margin-top: 2px;
+}
+.dingwei{
+	width: 15px;
+    float: right;
+    padding-top: 2px;
+}
+
+.dingwei img{
+	width: 15px;
+    height: 16px;
+}
+
+.jul{
+    float: right;
+}
+
+.shangquan{
+	width: 60%;
+	float: left;
+	overflow: hidden;
+    word-break: keep-all;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: left;
+}
+
+.qianmi{
+	float: left;	
+}
+
+.right_down {
+    height: 28px;
+    overflow: hidden;
+    margin-bottom: 0px;
+    width: 95%;
+    border-top: 1px dashed #e1e3e1;
+    line-height: 30px;
+    margin-top: 15px;
+}
+
+.right_d1 {
+	width: 12%;
+    float: left;
+    margin-top: 5px;
+}
+
+.right_d1 img {
+	width: 24px;
+    height: 24px;
+}
+
+.right_d2 {
+    width: 82%;
+    display: block;
+    overflow: hidden;
+    float: left;
+    margin-left: 1%;
+    color: #7a7070;
+    font-size: 14px;
+    word-break: keep-all;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-family: "Microsoft YaHei" ! important;
+    margin-top: 2px;
+} 
+
+#aftercard2{
+	background-color: white;
+    height: 8px;
+    width: 100%;
+    border-bottom: 1px solid #D2D2D2;
+}
+
+#gekai {
+	width: 100%;
+} 	
+
+#last {
+	width: 100%;
+	height: 50px;
+}
+
+#jzgd {
+    width: 100%;
+    background-color: white;
+    text-align: center;
+    color: #eb621d;
+    line-height: 35px;
+    display: none;
+    font-size: 15px;
+    bottom: 51px;
+}
+
+.nodatadiv {
+	margin: auto;
+	width: 120px;
+	height: 100px;
+	margin-top: 50px;
+}
+
+.nodatadiv img {
+	width: 120px;
+}
+
+#ddd1{text-align: center;width:100%;height:30px;background-color:white;margin-top: 42px;display: none;}
+
+#ddd2{text-align: center;width:100%;height:30px;background-color:white;margin-top: 15px;display: none;}
+	.ball-beat div{ 		
+		background-color: #f8ba1e;
+		width: 15px;
+  		height: 15px;
+	  	border-radius: 100%;
+	  	margin: 2px;
+	  	-webkit-animation-fill-mode: both;
+	  	animation-fill-mode: both;
+	  	display: inline-block;
+	  	-webkit-animation: ball-beat 0.7s 0s infinite linear;
+	 	animation: ball-beat 0.7s 0s infinite linear
+	 }
+	 
+	 .moreloading div {
+	 	background-color: #f8ba1e;
+		width: 15px;
+  		height: 15px;
+	  	border-radius: 100%;
+	  	margin: 2px;
+	  	-webkit-animation-fill-mode: both;
+	  	animation-fill-mode: both;
+	  	display: inline-block;
+	  	-webkit-animation: ball-beat 0.7s 0s infinite linear;
+	 	animation: ball-beat 0.7s 0s infinite linear
+	 }
+  
+	  @-webkit-keyframes ball-beat {
+	  50% {
+	    opacity: 0.2;
+	    -webkit-transform: scale(0.75);
+	            transform: scale(0.75); }
+
+      100% {
+      opacity: 1;
+      -webkit-transform: scale(1);
+            transform: scale(1); } }
+            
+      @-webkit-keyframes moreloading {
+	  50% {
+	    opacity: 0.2;
+	    -webkit-transform: scale(0.75);
+	            transform: scale(0.75); }
+
+      100% {
+      opacity: 1;
+      -webkit-transform: scale(1);
+            transform: scale(1); } }
+
+  @keyframes ball-beat {
+  50% {
+    opacity: 0.2;
+    -webkit-transform: scale(0.75);
+            transform: scale(0.75); }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+            
+  @keyframes moreloading {
+  50% {
+    opacity: 0.2;
+    -webkit-transform: scale(0.75);
+            transform: scale(0.75); }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+			
+  .ball-beat > div:nth-child(2n-1) {
+	  -webkit-animation-delay: 0.35s !important;
+	  animation-delay: 0.35s !important; 
+}
+  .moreloading > div:nth-child(2n-1) {
+	  -webkit-animation-delay: 0.35s !important;
+	  animation-delay: 0.35s !important; 
+}

@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>水秀社区</title>
+<meta nam="description" content="Swipe is a lightweight mobile slider with 1:1 touch movement, resistant bounds, scroll prevention, and completely library agnostic.">
+<meta name="keywords" content="Swipe, JS, javascript, 移动设备, 手机网页, 滑块, 触摸">
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="main.css">
+<style>
+.swipe {
+	overflow: hidden;
+	visibility: hidden;
+	position: relative;
+}
+.swipe-wrap {
+	overflow: hidden;
+	position: relative;
+}
+.swipe-wrap > figure {
+	float: left;
+	width: 100%;
+	position: relative;
+}
+
+.erweima {text-align:center;}
+.erweima img {border:6px solid #FFF; margin-right:20px;}
+
+.title {background-color:#222; width:100%; position:fixed; top:0; left:0; font-size:12px; font-family:Verdana, Geneva, sans-serif; z-index:99999;}
+.title a {color:#999; text-decoration:none; line-height:24px; padding:0 10px; letter-spacing: 1px;}
+.title_r {float:right;}
+.title_l {float:left;}
+.title a:hover {background:#000;}
+body { margin-bottom:60px !important; }
+a, button, input { -webkit-tap-highlight-color:rgba(255, 0, 0, 0); }
+ul, li { list-style:none; margin:0; padding:0 }
+.top_bar { position: fixed; z-index: 900; bottom: 0; left: 0; right: 0; margin: auto; font-family: Helvetica, Tahoma, Arial, Microsoft YaHei, sans-serif; }
+.top_menu { display:-webkit-box; border-top: 1px solid #3D3D46; display: block; width: 100%; background: rgba(255, 255, 255, 0.7); height: 48px; display: -webkit-box; display: box; margin:0; padding:0; -webkit-box-orient: horizontal; background: -webkit-gradient(linear, 0 0, 0 100%, from(#697077), to(#3F434E), color-stop(60%, #464A53)); box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.3) inset; }
+.top_bar .top_menu>li { -webkit-box-flex:1; background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(0, 0, 0, 0.1)), color-stop(50%, rgba(0, 0, 0, 0.3)), to(rgba(0, 0, 0, 0.4))), -webkit-gradient(linear, 0 0, 0 100%, from(rgba(255, 255, 255, 0.1)), color-stop(50%, rgba(255, 255, 255, 0.1)), to(rgba(255, 255, 255, 0.15))); ; -webkit-background-size:1px 100%, 1px 100%; background-size:1px 100%, 1px 100%; background-position: 1px center, 2px center; background-repeat: no-repeat; position:relative; text-align:center; }
+.top_menu li:first-child { background:none; }
+.top_bar .top_menu>li>a { height:48px; display:block; text-align:center; color:#FFF; text-decoration:none; text-shadow: 0 1px rgba(0, 0, 0, 0.3); -webkit-box-flex:1; }
+.top_bar .top_menu>li>a label { overflow:hidden; margin: 0 0 0 0; font-size: 12px; display: block !important; line-height: 18px; text-align: center; }
+.top_bar .top_menu>li>a img { padding: 3px 0 0 0; height: 24px; width: 24px; color: #fff; line-height: 48px; vertical-align:middle; }
+.top_bar li:first-child a { display: block; }
+.menu_font { text-align:left; position:absolute; right:10px; z-index:500; background: -webkit-gradient(linear, 0 0, 0 100%, from(#697077), to(#3F434E), color-stop(60%, #464A53)); border-radius: 5px; width: 120px; margin-top: 10px; padding: 0; box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3); }
+.menu_font.hidden { display:none; }
+.menu_font { top:inherit !important; bottom:60px; }
+.menu_font li a { height:40px; margin-right: 1px; display:block; text-align:center; color:#FFF; text-decoration:none; text-shadow: 0 1px rgba(0, 0, 0, 0.3); -webkit-box-flex:1; }
+.menu_font li a { text-align: left !important; }
+.top_menu li:last-of-type a { background: none; }
+.menu_font:after { top: inherit!important; bottom: -6px; border-color: #3F434E rgba(0, 0, 0, 0) rgba(0, 0, 0, 0); border-width: 6px 6px 0; position: absolute; content: ""; display: inline-block; width: 0; height: 0; border-style: solid; left: 80%; }
+.menu_font li { border-top: 1px solid rgba(255, 255, 255, 0.1); border-bottom: 1px solid rgba(0, 0, 0, 0.2); }
+.menu_font li:first-of-type { border-top: 0; }
+.menu_font li:last-of-type { border-bottom: 0; }
+.menu_font li a { height: 40px; line-height: 40px !important; position: relative; color: #fff; display: block; width: 100%; text-indent: 10px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; }
+.menu_font li a img { width: 20px; height:20px; display: inline-block; margin-top:-2px; color: #fff; line-height: 40px; vertical-align:middle; }
+.menu_font>li>a label { padding:3px 0 0 3px; font-size:14px; overflow:hidden; margin: 0; }
+#menu_list0 { right:0; left:10px; }
+#menu_list0:after { left: 20%; }
+#sharemcover { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); display: none; z-index: 20000; }
+#sharemcover img { position: fixed; right: 18px; top: 5px; width: 260px; height: 180px; z-index: 20001; border:0; }
+.top_bar .top_menu>li>a:hover, .top_bar .top_menu>li>a:active { background-color:#333; }
+.menu_font li a:hover, .menu_font li a:active { background-color:#333; }
+.menu_font li:first-of-type a { border-radius:5px 5px 0 0; }
+.menu_font li:last-of-type a { border-radius:0 0 5px 5px; }
+#plug-wrap { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0); z-index:800; }
+#cate18 .device {bottom: 49px;}
+#cate18 #indicator {bottom: 240px;}
+#cate19 .device {bottom: 49px;}
+#cate19 #indicator {bottom: 330px;}
+#cate19 .pagination {bottom: 60px;}
+</style>
+
+
+</head>
+<body class="page-swipe" style="background-color:#CCCCCC">
+<div style="max-width:500px;margin:auto">
+<header style="background-color:#CCCCCC;">
+  <div id="slider" class="swipe" style="visibility: visible;">
+    <div class="swipe-wrap">
+      <figure>
+        <div class="wrap">
+		
+          <div class="image" style="background:url(images/02.png) center no-repeat;background-size: cover"> 
+		  <a>我是标题 。。。。。。</a></div>
+        </div>
+      </figure>
+      <figure>
+        <div class="wrap">
+          <div class="image" style="background:url(images/explorations2.jpg) center no-repeat;background-size: cover"> </div>
+        </div>
+      </figure>
+      <figure>
+        <div class="wrap">
+          <div class="image" style="background:url(images/explorations3.jpg) center no-repeat;background-size: cover"> </div>
+        </div>
+      </figure>
+      <figure>
+        <div class="wrap">
+          <div class="image" style="background:url(images/fiftyandtwothirds3.jpg) center no-repeat;background-size: cover"> </div>
+        </div>
+      </figure>
+    </div>
+  </div>
+  <nav>
+<!-- 
+    <ul id="position">
+      <li class="on"></li>
+      <li class=""></li>
+      <li class=""></li>
+      <li class=""></li>
+    </ul>
+	-->
+  </nav>
+</header>
+<div style="width:100%">
+	<div  style="text-align:center;width:30%;height:100px;cursor: pointer;background: none repeat scroll 0 0 #FF6666;  float: left; margin-left: 2.5%; margin-top: 0px" >
+	<div style="width: 100%;margin-top: 15px;float: top"><img style="width:30%;"  src="images/1.png" ></div>
+	<div style="width: 100%;margin-top: 10px;float: top"><a style="color:#fff;font: 18;font-weight:bold"><span>微党建</span></a></div> 
+	</div>
+	
+	
+	<div  style="text-align:center;width:30%;height:100px;cursor: pointer;background: none repeat scroll 0 0 #FF6600;  float: left; margin-left: 2.5%; margin-top: 0px" >
+	<div style="width: 100%;margin-top: 15px;float: top"><img style="width:30%;"  src="images/2.png" ></div>
+	<div style="width: 100%;margin-top: 10px;float: top"><a style="color:#fff;font: 18;font-weight:bold"><span>微政策</span></a></div> 
+	
+	</div>
+	<div  style="text-align:center;width:30%;height:100px;cursor: pointer;background: none repeat scroll 0 0 #66CCCC;  float: left; margin-left: 2.5%; margin-top: 0px" >
+	<div style="width: 100%;margin-top: 15px;float: top"><img style="width:30%;"  src="images/3.png" ></div>
+	<div style="width: 100%;margin-top: 10px;float: top"><a style="color:#fff;font: 18;font-weight:bold"><span>微新闻</span></a></div> 
+	
+	</div>
+
+	<div  style="text-align:center;width:30%;height:100px;cursor: pointer;background: none repeat scroll 0 0 #FFCC33;  float: left; margin-left: 2.5%; margin-top: 5px" >
+	<div style="width: 100%;margin-top: 15px;float: top"><img style="width:30%;"  src="images/4.png" ></div>
+	<div style="width: 100%;margin-top: 10px;float: top"><a style="color:#fff;font: 18;font-weight:bold"><span>微地图</span></a></div> 
+	</div>
+	
+	<div  style="text-align:center;width:30%;height:100px;cursor: pointer;background: none repeat scroll 0 0 #66FFCC;  float: left; margin-left: 2.5%; margin-top: 5px" >
+	<div style="width: 100%;margin-top: 15px;float: top"><img style="width:30%;"  src="images/5.png" ></div>
+	<div style="width: 100%;margin-top: 10px;float: top"><a style="color:#fff;font: 18;font-weight:bold"><span>微公益</span></a></div> 
+	</div>
+	
+	<div  style="text-align:center;width:30%;height:100px;cursor: pointer;background: none repeat scroll 0 0 #6699CC;  float: left; margin-left: 2.5%; margin-top: 5px" >
+	<div style="width: 100%;margin-top: 15px;float: top"><img style="width:30%;"  src="images/6.png" ></div>
+	<div style="width: 100%;margin-top: 10px;float: top"><a style="color:#fff;font: 18;font-weight:bold"><span>微自治</span></a></div> 
+	</div>
+
+	<div  style="text-align:center;width:30%;height:100px;cursor: pointer;background: none repeat scroll 0 0 #FF6633;  float: left; margin-left: 2.5%; margin-top: 5px" >
+	<div style="width: 100%;margin-top: 15px;float: top"><img style="width:30%;"  src="images/7.png" ></div>
+	<div style="width: 100%;margin-top: 10px;float: top"><a style="color:#fff;font: 18;font-weight:bold"><span>微生活</span></a></div> 
+	</div>
+	
+	<div  style="text-align:center;width:30%;height:100px;cursor: pointer;background: none repeat scroll 0 0 #33CCFF;  float: left; margin-left: 2.5%; margin-top: 5px" >
+	<div style="width: 100%;margin-top: 15px;float: top"><img style="width:30%;"  src="images/8.png" ></div>
+	<div style="width: 100%;margin-top: 10px;float: top"><a style="color:#fff;font: 18;font-weight:bold"><span>微心愿</span></a></div> 
+	</div>
+	
+	<div  style="text-align:center;width:30%;height:100px;cursor: pointer;background: none repeat scroll 0 0 #FFFF66;  float: left; margin-left: 2.5%; margin-top: 5px" >
+	<div style="width: 100%;margin-top: 15px;float: top"><img style="width:30%;"  src="images/9.png" ></div>
+	<div style="width: 100%;margin-top: 10px;float: top"><a style="color:#fff;font: 18;font-weight:bold"><span>特色园</span></a></div> 
+	</div>
+
+	<div  style="text-align:center;width:30%;height:100px;cursor: pointer;background: none repeat scroll 0 0 #33FFFF;  float: left; margin-left: 2.5%; margin-top: 5px" >
+	<div style="width: 100%;margin-top: 15px;float: top"><img style="width:30%;"  src="images/10.png" ></div>
+	<div style="width: 100%;margin-top: 10px;float: top"><a style="color:#fff;font: 18;font-weight:bold"><span>荣誉榜</span></a></div> 
+	</div>
+	<div  style="text-align:center;width:30%;height:100px;cursor: pointer;background: none repeat scroll 0 0 #3399FF;  float: left; margin-left: 2.5%; margin-top: 5px" >
+	<div style="width: 100%;margin-top: 15px;float: top"><img style="width:30%;"  src="images/11.png" ></div>
+	<div style="width: 100%;margin-top: 10px;float: top"><a style="color:#fff;font: 18;font-weight:bold"><span>风采榜</span></a></div> 
+	</div>
+	<div  style="text-align:center;width:30%;height:100px;cursor: pointer;background: none repeat scroll 0 0 #66CC66;  float: left; margin-left: 2.5%; margin-top: 5px" >
+	<div style="width: 100%;margin-top: 15px;float: top"><img style="width:30%;"  src="images/12.png" ></div>
+	<div style="width: 100%;margin-top: 10px;float: top"><a style="color:#fff;font: 18;font-weight:bold"><span>活动报名</span></a></div> 
+	
+	</div>
+	<div style="width: 100%;height:50px;float: left;"></div>
+</div>
+
+<div class="top_bar" style="-webkit-transform:translate3d(0,0,0)">
+    <nav>
+    <ul id="top_menu" class="top_menu">
+    <li> <a href=""><img src="images/index.png"><label>首页</label></a>
+                </li><li> <a href=""><img src="images/sq1.png"><label>社区简介</label></a>
+                </li><li> <a href=""><img src="images/whd1.png"><label>微互动</label></a>
+                </li><li> <a href=""><img src="images/lxwm1.png"><label>联系我们</label></a>
+                </li> 
+    </ul>
+  </nav>
+</div>
+<script src="swipe.js"></script> 
+<script>
+var slider =
+  Swipe(document.getElementById('slider'), {
+    
+    continuous: true,
+    callback: function(pos) {
+
+     // var i = bullets.length;
+     // while (i--) {
+      //  bullets[i].className = ' ';
+     // }
+     // bullets[pos].className = 'on';
+
+    }
+  });
+//var bullets = document.getElementById('position').getElementsByTagName('li');
+</script>
+</body>
+</html>

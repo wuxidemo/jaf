@@ -1,0 +1,228 @@
+body{
+	margin: 0;
+	font-family: Microsoft YaHei !important;
+	font-size: 14px;
+	background-color: #eeeff0;
+}
+.liebiao{
+	width: 100%;
+	overflow: hidden;
+}
+.alldiv{
+	width: 100%;
+	overflow: hidden;
+	border-bottom: 1px solid #E1E1E1;
+}
+.top{
+	height: 40px;
+	padding-left: 5%;
+	padding-right: 5%;
+	border-top: 1px solid #D2D2D2;
+	border-bottom: 1px solid #D2D2D2;
+	background-color: #FFFFFF;
+}
+.riqi{
+	width: 50%;
+	height: 40px;
+	line-height: 40px;
+	float: left;
+	text-align: left;
+	color: #808080;
+}
+.zhuangtai{
+	width: 50%;
+	height: 40px;
+	line-height: 40px;
+	float: left;
+	text-align: right;
+}
+.bottom{
+	width: 100%;
+    overflow: hidden;
+    background-color: #FFFFFF;
+}
+.kong{
+	width: 100%;
+    height: 12px;
+}
+.hui{
+	width: 100%;
+    height: 10px;
+    background-color: #eeeff0;
+}
+.middle{
+	width: 90%;
+    overflow: hidden;
+    margin: auto;
+}
+.left{
+	width: 25%;
+    overflow: hidden;
+    float: left;
+}
+.tupian{
+	width: 100%;
+    overflow: hidden;
+}
+.tupian div{
+	width: 75px;
+    padding-bottom: 66px;
+    height: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+.right{
+	width: 70%;
+    overflow: hidden;
+    float: left;
+    padding-left: 5%;
+}
+.mingcheng{
+	width: 95%;
+    font-size: 18px;
+    color: #0A0A0A;
+    word-break: keep-all;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.miaoshu{
+	color: #494949;
+    margin-top: 3px;
+    line-height: 22px;
+}
+#jzgd{
+	width: 100%;
+    height: 40px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 14px;
+    color: #727171;
+}
+.foot{
+	width: 100%;
+    overflow: hidden;
+    position: fixed;
+    margin: 0;
+    bottom: 0;
+    border-top: 1px solid #C3C5C4;
+    background-color: #FFFFFF;
+}
+.huodongliebiao{
+	width: 50%;
+    height: 50px;
+    float: left;
+    text-align: center;
+    line-height: 50px;
+    font-size: 18px;
+    color: #231815;
+    border-right: 1px solid #C3C5C4;
+}
+.wodeshenqin{
+	width: 49%;
+    height: 50px;
+    float: left;
+    text-align: center;
+    line-height: 50px;
+    font-size: 18px;
+    color: #231815;
+}
+#ddd1{text-align: center;width:100%;height:30px;background-color:white;margin-top: 42px;display: none;}
+
+#ddd2{text-align: center;width:100%;height:30px;background-color:white;margin-top: 15px;display: none;}
+	.ball-beat div{ 		
+		background-color: #f8ba1e;
+		width: 15px;
+  		height: 15px;
+	  	border-radius: 100%;
+	  	margin: 2px;
+	  	-webkit-animation-fill-mode: both;
+	  	animation-fill-mode: both;
+	  	display: inline-block;
+	  	-webkit-animation: ball-beat 0.7s 0s infinite linear;
+	 	animation: ball-beat 0.7s 0s infinite linear
+	 }
+	 
+	 .moreloading div {
+	 	background-color: #f8ba1e;
+		width: 15px;
+  		height: 15px;
+	  	border-radius: 100%;
+	  	margin: 2px;
+	  	-webkit-animation-fill-mode: both;
+	  	animation-fill-mode: both;
+	  	display: inline-block;
+	  	-webkit-animation: ball-beat 0.7s 0s infinite linear;
+	 	animation: ball-beat 0.7s 0s infinite linear
+	 }
+  
+	  @-webkit-keyframes ball-beat {
+	  50% {
+	    opacity: 0.2;
+	    -webkit-transform: scale(0.75);
+	            transform: scale(0.75); }
+
+      100% {
+      opacity: 1;
+      -webkit-transform: scale(1);
+            transform: scale(1); } }
+            
+      @-webkit-keyframes moreloading {
+	  50% {
+	    opacity: 0.2;
+	    -webkit-transform: scale(0.75);
+	            transform: scale(0.75); }
+
+      100% {
+      opacity: 1;
+      -webkit-transform: scale(1);
+            transform: scale(1); } }
+
+  @keyframes ball-beat {
+  50% {
+    opacity: 0.2;
+    -webkit-transform: scale(0.75);
+            transform: scale(0.75); }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+            
+  @keyframes moreloading {
+  50% {
+    opacity: 0.2;
+    -webkit-transform: scale(0.75);
+            transform: scale(0.75); }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+			
+  .ball-beat > div:nth-child(2n-1) {
+	  -webkit-animation-delay: 0.35s !important;
+	  animation-delay: 0.35s !important; 
+}
+  .moreloading > div:nth-child(2n-1) {
+	  -webkit-animation-delay: 0.35s !important;
+	  animation-delay: 0.35s !important; 
+}
+.nodatadiv {
+ 	margin: auto;
+    height: 450px;
+    text-align: center; 
+    background-color: #FFFFFF;
+}	
+
+.nodatadiv img {
+	width: 120px;
+    margin-top: 150px;
+}
+.loadp{
+	margin-top: -23px;
+    font-size: 18px;
+    width: 100%;
+    text-align: center;
+    color: #7a7070;
+}
